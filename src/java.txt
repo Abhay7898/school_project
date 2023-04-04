@@ -32,3 +32,56 @@ temailid varchar(20),
 tdoj date
 
 ) ; 
+
+
+CREATE TABLE staf 
+(  
+sfid int ,    
+sffname Varchar (20) , 
+sflastname Varchar (20) ,    
+sfage Int , 
+sfgender varchar(20), 
+sfaddress  varchar(20) ,  
+sfmono int,
+sfemailid varchar(20),
+sfdoj date,
+sfdepartment varchar(20),
+sfwork varchar(10),
+sfsalary varchar(10)
+
+) ; 
+
+
+CREATE TABLE department 
+(  
+deptid Int,
+deptname varchar(10),
+deptlocation varchar(10)
+    
+
+) ; 
+
+
+CREATE TABLE work 
+(  
+wid Int,
+wname varchar(10),
+wlocation varchar(10)
+) ; 
+
+
+CREATE TABLE student_result
+(  
+rid Int,
+sid Int,
+tid int,
+maths int,
+physics int,
+chemistry int,
+hindi int,
+english int,
+totalmarks int,
+pass_fail boolean
+
+) ; 
+
