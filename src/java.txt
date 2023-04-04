@@ -1,0 +1,35 @@
+CREATE TABLE `data_of_school`.`hhhh` (
+  `eewe` INT NOT NULL);
+
+
+CREATE SCHEMA `school` ;
+
+CREATE TABLE student  
+(  
+sid int ,    
+sname Varchar (20) , 
+sfathername varchar(10),
+smothername varchar(10),   
+slastname Varchar (20) ,    
+sage Int , 
+sgender varchar(20), 
+saddress  varchar(20) ,  
+smono int,
+semailid varchar(20)
+
+) ; 
+
+
+CREATE TABLE teacher 
+(  
+tid int ,    
+tname Varchar (20) , 
+tlastname Varchar (20) ,    
+tage Int , 
+tgender varchar(20), 
+taddress  varchar(20) ,  
+tmono int,
+temailid varchar(20),
+tdoj date
+
+) ; 
