@@ -1,5 +1,4 @@
-CREATE TABLE `data_of_school`.`hhhh` (
-  `eewe` INT NOT NULL);
+
 
 
 CREATE SCHEMA `school` ;
