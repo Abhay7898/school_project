@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DbConnection {
+	
 	public static Connection getConnection() {
 		Connection con =null;
 		try {
@@ -12,6 +13,6 @@ public class DbConnection {
 		}catch (Exception e) {
 			System.out.println(e);
 		}
-		return null;
+		return con;
 	}
 }
