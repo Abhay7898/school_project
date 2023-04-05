@@ -1,9 +1,9 @@
-package connectionSchool;
+package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DbConnection {
+public class SchoolConnection {
 	
 	public static Connection getConnection() {
 		Connection con =null;

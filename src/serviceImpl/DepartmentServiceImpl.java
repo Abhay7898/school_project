@@ -3,8 +3,8 @@ package serviceImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-import ServiceInterface.DepartmentInterface;
 import model.Department;
+import service.DepartmentInterface;
 
 public class DepartmentServiceImpl implements DepartmentInterface {
 

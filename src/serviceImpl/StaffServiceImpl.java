@@ -3,8 +3,8 @@ package serviceImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-import ServiceInterface.StaffInterface;
 import model.Staff;
+import service.StaffInterface;
 
 public class StaffServiceImpl implements StaffInterface {
 

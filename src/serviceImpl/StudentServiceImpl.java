@@ -1,13 +1,17 @@
 package serviceImpl;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import ServiceInterface.StudentInterface;
 import model.Student;
+import service.StudentInterface;
+import util.SchoolConnection;
 
 public class StudentServiceImpl implements StudentInterface {
+
+	Connection con = SchoolConnection.getConnection();
 
 	@Override
 	public List<Student> readAllStudent() throws SQLException {
@@ -23,24 +27,25 @@ public class StudentServiceImpl implements StudentInterface {
 
 	@Override
 	public int createStudent(Student stu) {
-		int data=0;
+		int data = 0;
 		try {
-		PreparedStatement ps = con.prepareStatement("insert into Customer values (?,?,?,?,?,?,?,?,?,?,?)");
-		ps.setInt(1,stu.getSid());
-		ps.setString(2, stu.getSname());
-		ps.setString(3, stu.getSfathername());
-		ps.setString(4, stu.getSmothername());
-		ps.setString(5, stu.getSlastname());
-		ps.setInt(6, stu.getSage());
-		ps.setString(7, stu.getSgender());
-		ps.setString(8,stu.getSaddress());
-		ps.setInt(9, stu.getSmono());
-		ps.setString(10, stu.getSemailid());
-		data=ps.executeUpdate();
-		}catch(Exception e) {
+			PreparedStatement ps = con.prepareStatement("insert into Customer values (?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, stu.getsId());
+			ps.setString(2, stu.getSname());
+			ps.setString(3, stu.getsFatherName());
+			ps.setString(4, stu.getSmothername());
+			ps.setString(5, stu.getSlastname());
+			ps.setInt(6, stu.getSage());
+			ps.setString(7, stu.getSgender());
+			ps.setString(8, stu.getSaddress());
+			ps.setInt(9, stu.getSmono());
+			ps.setString(10, stu.getSemailid());
+			ps.setInt(11, stu.gettId());
+			data = ps.executeUpdate();
+		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		return 0;
 	}
 
@@ -62,5 +67,4 @@ public class StudentServiceImpl implements StudentInterface {
 		return null;
 	}
 
-	
 }

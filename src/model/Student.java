@@ -1,75 +1,111 @@
 package model;
 
 public class Student {
-	private int sid;
-	private String sname;
-	private String sfathername;
-	private String smothername;
-	private String slastname;
-	private int sage;
-	private String sgender;
-	private String saddress;
-	private int smono;
-	private String semailid;
-	public int getSid() {
-		return sid;
+	private int sId;
+	private String sName;
+	private String sFatherName;
+	private String sMotherName;
+	private String sLastName;
+	private int sAge;
+	private String sGender;
+	private String sAddress;
+	private int sMobile;
+	private String sEmailId;
+	private int tId;
+
+	public int getsId() {
+		return sId;
 	}
-	public void setSid(int sid) {
-		this.sid = sid;
+
+	public void setsId(int sId) {
+		this.sId = sId;
 	}
-	public String getSname() {
-		return sname;
+
+	public String getsName() {
+		return sName;
 	}
-	public void setSname(String sname) {
-		this.sname = sname;
+
+	public void setsName(String sName) {
+		this.sName = sName;
 	}
-	public String getSfathername() {
-		return sfathername;
+
+	public String getsFatherName() {
+		return sFatherName;
 	}
-	public void setSfathername(String sfathername) {
-		this.sfathername = sfathername;
+
+	public void setsFatherName(String sFatherName) {
+		this.sFatherName = sFatherName;
 	}
-	public String getSmothername() {
-		return smothername;
+
+	public String getsMotherName() {
+		return sMotherName;
 	}
-	public void setSmothername(String smothername) {
-		this.smothername = smothername;
+
+	public void setsMotherName(String sMotherName) {
+		this.sMotherName = sMotherName;
 	}
-	public String getSlastname() {
-		return slastname;
+
+	public String getsLastName() {
+		return sLastName;
 	}
-	public void setSlastname(String slastname) {
-		this.slastname = slastname;
+
+	public void setsLastName(String sLastName) {
+		this.sLastName = sLastName;
 	}
-	public int getSage() {
-		return sage;
+
+	public int getsAge() {
+		return sAge;
 	}
-	public void setSage(int sage) {
-		this.sage = sage;
+
+	public void setsAge(int sAge) {
+		this.sAge = sAge;
 	}
-	public String getSgender() {
-		return sgender;
+
+	public String getsGender() {
+		return sGender;
 	}
-	public void setSgender(String sgender) {
-		this.sgender = sgender;
+
+	public void setsGender(String sGender) {
+		this.sGender = sGender;
 	}
-	public String getSaddress() {
-		return saddress;
+
+	public String getsAddress() {
+		return sAddress;
 	}
-	public void setSaddress(String saddress) {
-		this.saddress = saddress;
+
+	public void setsAddress(String sAddress) {
+		this.sAddress = sAddress;
 	}
-	public int getSmono() {
-		return smono;
+
+	public int getsMobile() {
+		return sMobile;
 	}
-	public void setSmono(int smono) {
-		this.smono = smono;
+
+	public void setsMobile(int sMobile) {
+		this.sMobile = sMobile;
 	}
-	public String getSemailid() {
-		return semailid;
+
+	public String getsEmailId() {
+		return sEmailId;
 	}
-	public void setSemailid(String semailid) {
-		this.semailid = semailid;
+
+	public void setsEmailId(String sEmailId) {
+		this.sEmailId = sEmailId;
 	}
-	
+
+	public int gettId() {
+		return tId;
+	}
+
+	public void settId(int tId) {
+		this.tId = tId;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [sId=" + sId + ", sName=" + sName + ", sFatherName=" + sFatherName + ", sMotherName="
+				+ sMotherName + ", sLastName=" + sLastName + ", sAge=" + sAge + ", sGender=" + sGender + ", sAddress="
+				+ sAddress + ", sMobile=" + sMobile + ", sEmailId=" + sEmailId + ", tId=" + tId + "]";
+	}
+
 }

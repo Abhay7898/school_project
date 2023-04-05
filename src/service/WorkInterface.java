@@ -1,4 +1,4 @@
-package ServiceInterface;
+package service;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -9,7 +9,7 @@ public interface WorkInterface {
 	
 	public List<Work> readAllWork() throws SQLException;
 
-	public Work readWorkBYID(int id);
+	public Work getWorkById(int id);
 
 	public int createWork(Work w);
 
@@ -17,6 +17,6 @@ public interface WorkInterface {
 
 	public boolean deletWork(int id);
 
-	public Work readWorkByIdAndName(int id, String name);
+	public Work getWorkByIdAndName(int id, String name);
 
 }

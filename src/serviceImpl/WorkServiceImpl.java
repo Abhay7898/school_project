@@ -3,8 +3,8 @@ package serviceImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-import ServiceInterface.WorkInterface;
 import model.Work;
+import service.WorkInterface;
 
 public class WorkServiceImpl implements WorkInterface {
 
@@ -15,7 +15,7 @@ public class WorkServiceImpl implements WorkInterface {
 	}
 
 	@Override
-	public Work readWorkBYID(int id) {
+	public Work getWorkById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -39,7 +39,7 @@ public class WorkServiceImpl implements WorkInterface {
 	}
 
 	@Override
-	public Work readWorkByIdAndName(int id, String name) {
+	public Work getWorkByIdAndName(int id, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

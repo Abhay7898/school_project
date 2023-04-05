@@ -3,8 +3,8 @@ package serviceImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-import ServiceInterface.StudentResultInterface;
 import model.StudentResult;
+import service.StudentResultInterface;
 
 public class StudentResultServiceImpl implements StudentResultInterface  {
 

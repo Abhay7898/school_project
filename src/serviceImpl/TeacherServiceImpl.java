@@ -3,19 +3,19 @@ package serviceImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-import ServiceInterface.TeacherInterface;
 import model.Teacher;
+import service.TeacherInterface;
 
 public class TeacherServiceImpl implements TeacherInterface {
 
 	@Override
-	public List<Teacher> readAllTeacher() throws SQLException {
+	public List<Teacher> getAllTeacher() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Teacher readTeacherBYID(int id) {
+	public Teacher getTeacherById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -33,13 +33,13 @@ public class TeacherServiceImpl implements TeacherInterface {
 	}
 
 	@Override
-	public boolean deletTeacher(int id) {
+	public boolean deletTeacherById(int id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Teacher readTeacherByIdAndName(int id, String name) {
+	public Teacher getTeacherByIdAndName(int id, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
