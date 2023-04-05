@@ -1,6 +1,6 @@
 package model;
 
-public class Student_result {
+public class StudentResult {
 	private int rid;
 	private int sid;
 	private int tid;
