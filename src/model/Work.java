@@ -1,25 +1,29 @@
 package model;
 
 public class Work {
-	private int wid ;
-	public int getWid() {
-		return wid;
+	private int wId ;
+	private String wName;
+	private String wLocation;
+	public int getwId() {
+		return wId;
 	}
-	public void setWid(int wid) {
-		this.wid = wid;
+	public void setwId(int wId) {
+		this.wId = wId;
 	}
-	public String getWname() {
-		return wname;
+	public String getwName() {
+		return wName;
 	}
-	public void setWname(String wname) {
-		this.wname = wname;
+	public void setwName(String wName) {
+		this.wName = wName;
 	}
-	public String getWlocation() {
-		return wlocation;
+	public String getwLocation() {
+		return wLocation;
 	}
-	public void setWlocation(String wlocation) {
-		this.wlocation = wlocation;
+	public void setwLocation(String wLocation) {
+		this.wLocation = wLocation;
 	}
-	private String wname ;
-private String	 wlocation ;
+	
+	
+	
+	
 }

@@ -7,9 +7,9 @@ import model.StudentResult;
 
 public interface StudentResultInterface {
 
-	public List<StudentResult> readAllStudentResult() throws SQLException;
+	public List<StudentResult> getAllStudentResult() throws SQLException;
 
-	public StudentResult readById(int id);
+	public StudentResult getStudentResultById(int id);
 
 	public int createStudentResult(StudentResult sr);
 
@@ -17,5 +17,5 @@ public interface StudentResultInterface {
 
 	public boolean deletStudentResult(int id);
 
-	public StudentResult readByIdAndName(int id, String name);
+	public StudentResult getByIdAndName(int id, String name);
 }

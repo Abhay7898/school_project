@@ -7,9 +7,9 @@ import model.Department;
 
 public interface DepartmentInterface {
 
-	public List<Department> readAllDepartment() throws SQLException;
+	public List<Department> getAllDepartment() throws SQLException;
 
-	public Department readDepartmentBYID(int id);
+	public Department getDepartmentById(int id);
 
 	public int createDepartment(Department dept);
 

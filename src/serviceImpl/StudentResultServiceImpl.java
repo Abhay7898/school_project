@@ -9,13 +9,13 @@ import service.StudentResultInterface;
 public class StudentResultServiceImpl implements StudentResultInterface  {
 
 	@Override
-	public List<StudentResult> readAllStudentResult() throws SQLException {
+	public List<StudentResult> getAllStudentResult() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public StudentResult readById(int id) {
+	public StudentResult getStudentResultById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -39,10 +39,11 @@ public class StudentResultServiceImpl implements StudentResultInterface  {
 	}
 
 	@Override
-	public StudentResult readByIdAndName(int id, String name) {
+	public StudentResult getByIdAndName(int id, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	
 
 }

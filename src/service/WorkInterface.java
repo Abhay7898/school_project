@@ -7,7 +7,7 @@ import model.Work;
 
 public interface WorkInterface {
 	
-	public List<Work> readAllWork() throws SQLException;
+	public List<Work> getAllWork() throws SQLException;
 
 	public Work getWorkById(int id);
 

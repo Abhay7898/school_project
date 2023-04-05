@@ -1,25 +1,32 @@
 package model;
 
 public class Department {
-	private int deptid;
-	private String deptname;
-	private String deptlocation;
-	public int getDeptid() {
-		return deptid;
+	
+	private int deptId;
+	private String deptName;
+	private String deptLocation;
+	
+	
+	public int getDeptId() {
+		return deptId;
 	}
-	public void setDeptid(int deptid) {
-		this.deptid = deptid;
+	public void setDeptId(int deptId) {
+		this.deptId = deptId;
 	}
-	public String getDeptname() {
-		return deptname;
+	public String getDeptName() {
+		return deptName;
 	}
-	public void setDeptname(String deptname) {
-		this.deptname = deptname;
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
 	}
-	public String getDeptlocation() {
-		return deptlocation;
+	public String getDeptLocation() {
+		return deptLocation;
 	}
-	public void setDeptlocation(String deptlocation) {
-		this.deptlocation = deptlocation;
+	public void setDeptLocation(String deptLocation) {
+		this.deptLocation = deptLocation;
 	}
+	
+	
+	
+	
 }

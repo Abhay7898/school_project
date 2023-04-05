@@ -9,7 +9,7 @@ import service.WorkInterface;
 public class WorkServiceImpl implements WorkInterface {
 
 	@Override
-	public List<Work> readAllWork() throws SQLException {
+	public List<Work> getAllWork() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -44,6 +44,7 @@ public class WorkServiceImpl implements WorkInterface {
 		return null;
 	}
 
+	
 	
 
 }

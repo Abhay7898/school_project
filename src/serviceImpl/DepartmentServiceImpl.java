@@ -9,13 +9,13 @@ import service.DepartmentInterface;
 public class DepartmentServiceImpl implements DepartmentInterface {
 
 	@Override
-	public List<Department> readAllDepartment() throws SQLException {
+	public List<Department> getAllDepartment() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Department readDepartmentBYID(int id) {
+	public Department getDepartmentById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

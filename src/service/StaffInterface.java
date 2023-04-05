@@ -7,9 +7,9 @@ import model.Staff;
 
 public interface StaffInterface {
 	
-	public List<Staff> readAllStaff() throws SQLException;
+	public List<Staff> getAllStaff() throws SQLException;
 
-	public Staff readStaffBYID(int id);
+	public Staff getStaffById(int id);
 
 	public int createStaff(Staff sf);
 
@@ -17,6 +17,6 @@ public interface StaffInterface {
 
 	public boolean deletStaff(int id);
 
-	public Staff readStaffByIdAndName(int id, String name);
+	public Staff getStaffByIdAndName(int id, String name);
 
 }

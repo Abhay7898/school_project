@@ -9,13 +9,13 @@ import service.StaffInterface;
 public class StaffServiceImpl implements StaffInterface {
 
 	@Override
-	public List<Staff> readAllStaff() throws SQLException {
+	public List<Staff> getAllStaff() throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Staff readStaffBYID(int id) {
+	public Staff getStaffById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -39,7 +39,7 @@ public class StaffServiceImpl implements StaffInterface {
 	}
 
 	@Override
-	public Staff readStaffByIdAndName(int id, String name) {
+	public Staff getStaffByIdAndName(int id, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
