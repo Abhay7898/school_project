@@ -61,11 +61,10 @@ public class TeacherServiceImpl implements TeacherInterface {
 	}
 
 	@Override
-	public int createTeacher(Teacher teac) {
+	public int createTeacher(Teacher teacher) {
 		int result=0;
 		try {
-		PreparedStatement ps =con.prepareStatement("insert into teacher values(?,?,?,?,?,?,?,?,?)");
-		Teacher teacher =new Teacher();
+		PreparedStatement ps =con.prepareStatement("insert into teacher values(?,?,?,?,?,?,?,?,?,?,?)");
 		ps.setInt(1,teacher.gettId());
 		ps.setString(2, teacher.gettName());
 		ps.setString(3,teacher.gettLastName());
@@ -75,7 +74,8 @@ public class TeacherServiceImpl implements TeacherInterface {
 		ps.setInt(7, teacher.gettMobile());
 		ps.setString(8, teacher.gettEmailId());
 		ps.setDate(9 , teacher.gettDoj());
-		ps.setString(10, teacher.gettSubject());
+		ps.setInt(10, 0);
+		ps.setString(11, teacher.gettSubject());
 		result=ps.executeUpdate();
 		}catch (Exception e) {
 			System.out.println(e);
@@ -152,7 +152,13 @@ public class TeacherServiceImpl implements TeacherInterface {
 	}
 
 	@Override
-	public Teacher getStudentById(int id) {
+	public Teacher getTeacherByStudentId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Teacher getTeacherBySubject(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
