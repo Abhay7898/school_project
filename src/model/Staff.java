@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Staff {
 	
@@ -89,7 +89,5 @@ public class Staff {
 	}
 	public void setSfSalary(String sfSalary) {
 		this.sfSalary = sfSalary;
-	}
-
-	
+	}	
 }
