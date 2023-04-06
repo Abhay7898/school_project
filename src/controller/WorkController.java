@@ -13,9 +13,7 @@ public class WorkController {
 	public static void main(String[] args) {
 
 		getAllWork();
-
 		getById();
-
 		create();
 		update();
 		delete();

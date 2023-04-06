@@ -8,9 +8,7 @@ import serviceImpl.DepartmentServiceImpl;
 public class DepartmentController {
 	public static void main(String[] args) {
 		getAllDepartment();
-
 		updata();
-
 		readById();
 		create();
 		delete();
