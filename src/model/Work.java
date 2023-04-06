@@ -28,4 +28,11 @@ public class Work {
 	public void setwLocation(String wLocation) {
 		this.wLocation = wLocation;
 	}
+
+	@Override
+	public String toString() {
+		return "Work [wId=" + wId + ", wName=" + wName + ", wLocation=" + wLocation + "]";
+	}
+	
+	
 }

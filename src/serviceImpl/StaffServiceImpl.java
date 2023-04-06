@@ -33,7 +33,7 @@ public class StaffServiceImpl implements StaffInterface {
 			st.setSfDoj(rs.getDate(8));
 			st.setSfDepartment(rs.getString(9));
 			st.setSfWork(rs.getString(10));
-			st.setSfSalary(rs.getString(0));
+			st.setSfSalary(rs.getString(11));
 			list.add(st);
 		}
 		return list;
