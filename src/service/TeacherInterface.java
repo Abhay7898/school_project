@@ -18,6 +18,9 @@ public interface TeacherInterface {
 
 	public Teacher getTeacherByIdAndName(int id, String name);
 	
-	public Teacher getStudentById(int id);
+	public Teacher getTeacherByStudentId(int id);
+	
+	//public Teacher get
+	
 
 }
