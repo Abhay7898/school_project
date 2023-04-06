@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -14,6 +15,10 @@ public class TeacherController {
 		
 		
 		
+		//updata();
+	}
+
+	private static void updata() {
 		TeacherServiceImpl teacherServiceImpl = new TeacherServiceImpl();
 		Teacher teacher= new Teacher();
 		teacher.settId(1);
@@ -43,7 +48,7 @@ public class TeacherController {
 		teacher.settAddress("Lalbage");
 		teacher.settMobile(789884592);
 		teacher.settEmailId("abhaygarhwal@95");
-		//teacher.settDoj();
+		teacher.settDoj(new Date(System.currentTimeMillis()));
 		teacher.settSubject("maths");
 		int result =teacherServiceImpl.createTeacher(teacher);
 		if (result>0) {

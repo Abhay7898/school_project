@@ -74,7 +74,7 @@ public class TeacherServiceImpl implements TeacherInterface {
 		ps.setString(6, teacher.gettAddress());
 		ps.setInt(7, teacher.gettMobile());
 		ps.setString(8, teacher.gettEmailId());
-		ps.setDate(9 , new Date(teacher.gettDoj().getTime()));
+		ps.setDate(9 , teacher.gettDoj());
 		ps.setString(10, teacher.gettSubject());
 		result=ps.executeUpdate();
 		}catch (Exception e) {
