@@ -34,7 +34,7 @@ tdoj date
 ) ; 
 
 
-CREATE TABLE staf 
+CREATE TABLE staff 
 (  
 sfid int ,    
 sffname Varchar (20) , 

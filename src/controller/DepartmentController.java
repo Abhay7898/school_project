@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.Department;
 import serviceImpl.DepartmentServiceImpl;
+import util.CommonUtil;
 
 public class DepartmentController {
 	public static void main(String[] args) {
@@ -19,7 +20,7 @@ public class DepartmentController {
 	private static void getDepartmentByIdAndName() {
 		DepartmentServiceImpl d = new DepartmentServiceImpl();
 		Department dept = d.getDepartmentByIdAndName(1, "nandini");
-		System.out.println(dept);
+		CommonUtil.toString(dept);
 	}
 
 	private static void delete() {

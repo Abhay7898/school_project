@@ -25,10 +25,8 @@ public class Department {
 	public void setDeptLocation(String deptLocation) {
 		this.deptLocation = deptLocation;
 	}
-	@Override
-	public String toString() {
-		return "Department [deptId=" + deptId + ", deptName=" + deptName + ", deptLocation=" + deptLocation + "]";
-	}
+	
+	
 	
 	
 	
