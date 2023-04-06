@@ -75,6 +75,7 @@ public class TeacherServiceImpl implements TeacherInterface {
 		ps.setInt(7, teacher.gettMobile());
 		ps.setString(8, teacher.gettEmailId());
 		ps.setDate(9 , new Date(teacher.gettDoj().getTime()));
+		ps.setString(10, teacher.gettSubject());
 		result=ps.executeUpdate();
 		}catch (Exception e) {
 			System.out.println(e);
@@ -142,11 +143,18 @@ public class TeacherServiceImpl implements TeacherInterface {
 				teacher.settMobile(rs.getInt(7));
 				teacher.settEmailId(rs.getString(8));
 				teacher.settDoj(rs.getDate(9));
+				teacher.settSubject(rs.getString(10));
 			}
 		}catch (Exception e) {
 			System.out.println(e);
 		}
 		return teacher;
+	}
+
+	@Override
+	public Teacher getStudentById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

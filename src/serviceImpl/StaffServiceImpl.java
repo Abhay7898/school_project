@@ -17,7 +17,7 @@ public class StaffServiceImpl implements StaffInterface {
 	@Override
 	public List<Staff> getAllStaff() throws SQLException {
 		List<Staff> list = new ArrayList<>();
-		PreparedStatement ps = CommonUtil.getPrS("select * from staff");
+		PreparedStatement ps = CommonUtil.commonStatement("select * from staff");
 		ResultSet rs =ps.executeQuery();
 		while(rs.next()) {
 			Staff st = new Staff();
@@ -119,13 +119,13 @@ public class StaffServiceImpl implements StaffInterface {
 	public boolean deletStaff(int id) {
 		int i = 0;
 		try {
-			PreparedStatement ps = CommonUtil.getPrS("delete from staff where sfid=?");
+			PreparedStatement ps = CommonUtil.commonStatement("delete from staff where sfid=?");
 			ps.setInt(1, id);
 			i=ps.executeUpdate();
 		}catch(Exception e) {
 			System.out.println(e);
 		}
-		return CommonUtil.isSuccess(i);
+		return CommonUtil.conditionCheaq(i);
 	}
 
 	@Override

@@ -12,6 +12,7 @@ public class Student {
 	private int sMobile;
 	private String sEmailId;
 	private int tId;
+	private String sSubjec;
 
 	public int getsId() {
 		return sId;
@@ -101,11 +102,15 @@ public class Student {
 		this.tId = tId;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [sId=" + sId + ", sName=" + sName + ", sFatherName=" + sFatherName + ", sMotherName="
-				+ sMotherName + ", sLastName=" + sLastName + ", sAge=" + sAge + ", sGender=" + sGender + ", sAddress="
-				+ sAddress + ", sMobile=" + sMobile + ", sEmailId=" + sEmailId + ", tId=" + tId + "]";
+	public String getsSubjec() {
+		return sSubjec;
 	}
+
+	public void setsSubjec(String sSubjec) {
+		this.sSubjec = sSubjec;
+	}
+	
+
+	
 
 }

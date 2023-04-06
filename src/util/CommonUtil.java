@@ -7,8 +7,10 @@ import java.util.List;
 
 import model.Department;
 import model.Staff;
+import model.Student;
 
 public class CommonUtil {
+	private static final Student Student = null;
 	static Connection con = SchoolConnection.getConnection();
 
 	public static boolean isNullOrEmpty(String s) {
@@ -40,17 +42,23 @@ public class CommonUtil {
 		} else if (o instanceof Staff) {
 			Staff s = (Staff) o;
 			System.out.println();
+		}else if(o instanceof Student) {
+			Student stu=(Student) o;
+			System.out.println("Student [sId=" + stu.getsId() + ", sName=" + stu.getsName() + ", sFatherName=" + stu.getsFatherName()+ ", sMotherName="
+					+ stu.getsMobile() + ", sLastName=" + stu.getsLastName() + ", sAge=" + stu.getsAge() + ", sGender=" + stu.getsGender() + ", sAddress="
+					+ stu.getsAddress() + ", sMobile=" + stu.getsMobile() + ", sEmailId=" + stu.getsEmailId() + ", tId=" + stu.gettId()+ "]");
+			
 		}
 	}
 
-	public static boolean isSuccess(int i) {
+	public static boolean conditionCheaq(int i) {
 		if (i > 0) {
 			return true;
 		}
 		return false;
 	}
 
-	public static PreparedStatement getPrS(String sql) {
+	public static PreparedStatement commonStatement(String sql) {
 		try {
 			return con.prepareStatement(sql);
 		} catch (SQLException e) {
@@ -58,6 +66,6 @@ public class CommonUtil {
 		}
 		return null;
 
-	}
+	} 
 
 }

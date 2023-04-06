@@ -17,5 +17,7 @@ public interface TeacherInterface {
 	public boolean deletTeacherById(int id);
 
 	public Teacher getTeacherByIdAndName(int id, String name);
+	
+	public Teacher getStudentById(int id);
 
 }

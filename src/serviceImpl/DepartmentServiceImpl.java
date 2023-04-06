@@ -10,6 +10,7 @@ import java.util.List;
 import model.Department;
 import model.Student;
 import service.DepartmentInterface;
+import util.CommonUtil;
 import util.SchoolConnection;
 
 public class DepartmentServiceImpl implements DepartmentInterface {
@@ -20,7 +21,7 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 		List<Department> list = new ArrayList<>();
 		try {
 
-			PreparedStatement ps = con.prepareStatement("select * from department");
+			PreparedStatement ps = CommonUtil.commonStatement("select * from department");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Department departement = new Department();
@@ -41,7 +42,7 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 
 		Department dept = new Department();
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from department Where deptId=?");
+			PreparedStatement ps = CommonUtil.commonStatement("select * from department Where deptId=?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -61,7 +62,7 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 	public int createDepartment(Department dept) {
 		int data = 0;
 		try {
-			PreparedStatement ps = con.prepareStatement("insert into department values (?,?,?)");
+			PreparedStatement ps = CommonUtil.commonStatement("insert into department values (?,?,?)");
 			ps.setInt(1, dept.getDeptId());
 			ps.setString(2, dept.getDeptName());
 			ps.setString(3, dept.getDeptLocation());
@@ -75,14 +76,11 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 	@Override
 	public boolean updataDepartment(Department dept) {
 		try {
-			PreparedStatement ps = con.prepareStatement("update department set deptName=? Where deptId=?");
+			PreparedStatement ps = CommonUtil.commonStatement("update department set deptName=? Where deptId=?");
 			ps.setString(1, dept.getDeptName());
 			ps.setInt(2, dept.getDeptId());
 			int i = ps.executeUpdate();
-			if (i == 0) {
-				return false;
-			}
-			return true;
+			return CommonUtil.conditionCheaq(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -94,12 +92,10 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 	@Override
 	public boolean deletDepartment(int id) {
 		try {
-			PreparedStatement ps = con.prepareStatement("delete from department Where deptId=?");
+			PreparedStatement ps = CommonUtil.commonStatement("delete from department Where deptId=?");
 			ps.setInt(1, id);
 			int i = ps.executeUpdate();
-			if (i == 0) {
-				return false;
-			}
+			return CommonUtil.conditionCheaq(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -110,7 +106,7 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 	public Department getDepartmentByIdAndName(int id, String name) {
 		Department dept = new Department();
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from department Where deptId=? and deptName=?");
+			PreparedStatement ps = CommonUtil.commonStatement("select * from department Where deptId=? and deptName=?");
 			ps.setInt(1, id);
 			ps.setString(2, name);
 			ResultSet rs = ps.executeQuery();

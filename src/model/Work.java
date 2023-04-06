@@ -29,10 +29,7 @@ public class Work {
 		this.wLocation = wLocation;
 	}
 
-	@Override
-	public String toString() {
-		return "Work [wId=" + wId + ", wName=" + wName + ", wLocation=" + wLocation + "]";
-	}
+	
 	
 	
 }

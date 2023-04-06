@@ -12,13 +12,15 @@ public class Teacher {
 	private int tMobile;
 	private String tEmailId;
 	private Date tDoj;
+	private int sId;
+	private String tSubject;
 	
 	
 		public Teacher() {
 		}
 
 	public Teacher(int tId, String tName, String tLastName, int tAge, String tGender, String tAddress, int tMobile,
-			String tEmailId, Date tDoj) {
+			String tEmailId, Date tDoj,int sId,String tSubject) {
 		this.tId = tId;
 		this.tName = tName;
 		this.tLastName = tLastName;
@@ -28,6 +30,8 @@ public class Teacher {
 		this.tMobile = tMobile;
 		this.tEmailId = tEmailId;
 		this.tDoj = tDoj;
+		this.sId=sId;
+		this.tSubject=tSubject;
 	}
 
 	public int gettId() {
@@ -102,12 +106,23 @@ public class Teacher {
 		this.tDoj = tDoj;
 	}
 
-	@Override
-	public String toString() {
-		return "Teacher [tId=" + tId + ", tName=" + tName + ", tLastName=" + tLastName + ", tAge=" + tAge + ", tGender="
-				+ tGender + ", tAddress=" + tAddress + ", tMobile=" + tMobile + ", tEmailId=" + tEmailId + ", tDoj="
-				+ tDoj + "]";
+	public int getsId() {
+		return sId;
 	}
+
+	public void setsId(int sId) {
+		this.sId = sId;
+	}
+
+	public String gettSubject() {
+		return tSubject;
+	}
+
+	public void settSubject(String tSubject) {
+		this.tSubject = tSubject;
+	}
+
+	
 }
 	
 	

@@ -10,7 +10,10 @@ public class TeacherController {
 	public static void main(String[] args) throws SQLException {
 		//readAllTeacher();
 		//readStudentById();
-		//creatTeacher();
+		creatTeacher();
+		
+		
+		
 		TeacherServiceImpl teacherServiceImpl = new TeacherServiceImpl();
 		Teacher teacher= new Teacher();
 		teacher.settId(1);
@@ -21,6 +24,7 @@ public class TeacherController {
 		teacher.settAddress("Lalbage");
 		teacher.settMobile(789884592);
 		teacher.settEmailId("abhaygarhwal@95");
+		teacher.settSubject("maths");
 		//teacher.settDoj();
 		boolean result =teacherServiceImpl.updataTeacher(teacher);
 		if(result) {
@@ -40,6 +44,7 @@ public class TeacherController {
 		teacher.settMobile(789884592);
 		teacher.settEmailId("abhaygarhwal@95");
 		//teacher.settDoj();
+		teacher.settSubject("maths");
 		int result =teacherServiceImpl.createTeacher(teacher);
 		if (result>0) {
 			System.out.println("Data Insered");

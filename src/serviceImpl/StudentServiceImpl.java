@@ -20,21 +20,11 @@ public class StudentServiceImpl implements StudentInterface {
 	public List<Student> getAllStudent() {
 		List<Student> list = new ArrayList<>();
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from student");
+			PreparedStatement ps = CommonUtil.commonStatement("select * from student");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Student stu = new Student();
-				stu.setsId(rs.getInt(1));
-				stu.setsName(rs.getString(2));
-				stu.setsFatherName(rs.getString(3));
-				stu.setsMotherName(rs.getString(4));
-				stu.setsLastName(rs.getString(5));
-				stu.setsAge(rs.getInt(6));
-				stu.setsAddress(rs.getString(7));
-				stu.setsEmailId(rs.getString(8));
-				stu.setsGender(rs.getString(9));
-				stu.setsMobile(rs.getInt(10));
-				stu.settId(rs.getInt(11));
+				setDataInStudent(stu, rs);
 				list.add(stu);
 
 			}
@@ -48,21 +38,11 @@ public class StudentServiceImpl implements StudentInterface {
 	public Student getStudentById(int id) {
 		Student stu = new Student();
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from student Where sId=?");
+			PreparedStatement ps = CommonUtil.commonStatement("select * from student Where sId=?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				stu.setsId(rs.getInt(1));
-				stu.setsName(rs.getString(2));
-				stu.setsFatherName(rs.getString(3));
-				stu.setsMotherName(rs.getString(4));
-				stu.setsLastName(rs.getString(5));
-				stu.setsAge(rs.getInt(6));
-				stu.setsAddress(rs.getString(7));
-				stu.setsEmailId(rs.getString(8));
-				stu.setsGender(rs.getString(9));
-				stu.setsMobile(rs.getInt(10));
-				stu.settId(rs.getInt(11));
+				setDataInStudent(stu, rs);
 
 			}
 		} catch (Exception e) {
@@ -70,6 +50,20 @@ public class StudentServiceImpl implements StudentInterface {
 		}
 
 		return stu;
+	}
+
+	private void setDataInStudent(Student stu, ResultSet rs) throws SQLException {
+		stu.setsId(rs.getInt(1));
+		stu.setsName(rs.getString(2));
+		stu.setsFatherName(rs.getString(3));
+		stu.setsMotherName(rs.getString(4));
+		stu.setsLastName(rs.getString(5));
+		stu.setsAge(rs.getInt(6));
+		stu.setsAddress(rs.getString(7));
+		stu.setsEmailId(rs.getString(8));
+		stu.setsGender(rs.getString(9));
+		stu.setsMobile(rs.getInt(10));
+		stu.settId(rs.getInt(11));
 	}
 
 	@Override
@@ -81,7 +75,7 @@ public class StudentServiceImpl implements StudentInterface {
 
 		int data = 0;
 		try {
-			PreparedStatement ps = con.prepareStatement("insert into student values (?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps = CommonUtil.commonStatement("insert into student values (?,?,?,?,?,?,?,?,?,?,?)");
 			ps.setInt(1, stu.getsId());
 			ps.setString(2, stu.getsName());
 			ps.setString(3, stu.getsFatherName());
@@ -104,14 +98,11 @@ public class StudentServiceImpl implements StudentInterface {
 	@Override
 	public boolean updataStudent(Student stu) {
 		try {
-			PreparedStatement ps = con.prepareStatement("update student set sName=? Where sId=?");
+			PreparedStatement ps = CommonUtil.commonStatement("update student set sName=? Where sId=?");
 			ps.setString(1, stu.getsName());
 			ps.setInt(2, stu.getsId());
 			int i = ps.executeUpdate();
-			if (i == 0) {
-				return false;
-			}
-			return true;
+			return CommonUtil.conditionCheaq(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -122,12 +113,10 @@ public class StudentServiceImpl implements StudentInterface {
 	@Override
 	public boolean deletStudent(int id) {
 		try {
-			PreparedStatement ps = con.prepareStatement("delete from student Where sId=?");
+			PreparedStatement ps = CommonUtil.commonStatement("delete from student Where sId=?");
 			ps.setInt(1, id);
 			int i = ps.executeUpdate();
-			if (i == 0) {
-				return false;
-			}
+			return CommonUtil.conditionCheaq(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -138,28 +127,24 @@ public class StudentServiceImpl implements StudentInterface {
 	public Student getStudentByIdAndName(int id, String name) {
 		Student stu = new Student();
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from student Where sId=? and sName=?");
+			PreparedStatement ps = CommonUtil.commonStatement("select * from student Where sId=? and sName=?");
 			ps.setInt(1, id);
 			ps.setString(2, name);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				stu.setsId(rs.getInt(1));
-				stu.setsName(rs.getString(2));
-				stu.setsFatherName(rs.getString(3));
-				stu.setsMotherName(rs.getString(4));
-				stu.setsLastName(rs.getString(5));
-				stu.setsAge(rs.getInt(6));
-				stu.setsAddress(rs.getString(7));
-				stu.setsEmailId(rs.getString(8));
-				stu.setsGender(rs.getString(9));
-				stu.setsMobile(rs.getInt(10));
-				stu.settId(rs.getInt(11));
+				setDataInStudent(stu, rs);
 
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return stu;
+	}
+
+	@Override
+	public Student getteacherById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
