@@ -7,7 +7,7 @@ import model.Department;
 
 public interface DepartmentInterface {
 
-	public List<Department> getAllDepartment() throws SQLException;
+	public List<Department> getAllDepartment() ;
 
 	public Department getDepartmentById(int id);
 
@@ -17,6 +17,6 @@ public interface DepartmentInterface {
 
 	public boolean deletDepartment(int id);
 
-	public Department readDepartmentByIdAndName(int id, String name);
+	public Department getDepartmentByIdAndName(int id, String name);
 
 }

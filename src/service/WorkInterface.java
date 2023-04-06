@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Work;
+import serviceImpl.WorkServiceImpl;
 
 public interface WorkInterface {
 	
@@ -18,5 +19,7 @@ public interface WorkInterface {
 	public boolean deletWork(int id);
 
 	public Work getWorkByIdAndName(int id, String name);
+
+	
 
 }
