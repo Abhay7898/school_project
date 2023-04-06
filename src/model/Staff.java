@@ -89,19 +89,13 @@ public class Staff {
 	}
 	public void setSfSalary(String sfSalary) {
 		this.sfSalary = sfSalary;
-	}	
-	public String toString() {
-		System.out.print(sfId+" ");
-		System.out.print(sfFName+" ");
-		System.out.print(sfLastName+" ");
-		System.out.print( sfGender+" ");
-		System.out.print( sfAddress+" ");
-		System.out.print(sfMobile+" ");;
-		System.out.print(sfEmailId+" ");
-		System.out.print(sfDoj+" ");
-		System.out.print(sfDepartment+" ");
-		System.out.print( sfWork+" ");
-		System.out.print(sfSalary+" ");
-		return null;
 	}
+	@Override
+	public String toString() {
+		return "Staff [sfId=" + sfId + ", sfFName=" + sfFName + ", sfLastName=" + sfLastName + ", sfAge=" + sfAge
+				+ ", sfGender=" + sfGender + ", sfAddress=" + sfAddress + ", sfMobile=" + sfMobile + ", sfEmailId="
+				+ sfEmailId + ", sfDoj=" + sfDoj + ", sfDepartment=" + sfDepartment + ", sfWork=" + sfWork
+				+ ", sfSalary=" + sfSalary + "]";
+	}
+	
 }

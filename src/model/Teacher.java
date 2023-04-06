@@ -12,6 +12,23 @@ public class Teacher {
 	private int tMobile;
 	private String tEmailId;
 	private Date tDoj;
+	
+	
+		public Teacher() {
+		}
+
+	public Teacher(int tId, String tName, String tLastName, int tAge, String tGender, String tAddress, int tMobile,
+			String tEmailId, Date tDoj) {
+		this.tId = tId;
+		this.tName = tName;
+		this.tLastName = tLastName;
+		this.tAge = tAge;
+		this.tGender = tGender;
+		this.tAddress = tAddress;
+		this.tMobile = tMobile;
+		this.tEmailId = tEmailId;
+		this.tDoj = tDoj;
+	}
 
 	public int gettId() {
 		return tId;
@@ -85,4 +102,12 @@ public class Teacher {
 		this.tDoj = tDoj;
 	}
 
+	@Override
+	public String toString() {
+		return "Teacher [tId=" + tId + ", tName=" + tName + ", tLastName=" + tLastName + ", tAge=" + tAge + ", tGender="
+				+ tGender + ", tAddress=" + tAddress + ", tMobile=" + tMobile + ", tEmailId=" + tEmailId + ", tDoj="
+				+ tDoj + "]";
+	}
 }
+	
+	
