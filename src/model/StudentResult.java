@@ -92,5 +92,5 @@ public class StudentResult {
 	public void setPass_fail(boolean pass_fail) {
 		this.pass_fail = pass_fail;
 	}
-
+	
 }

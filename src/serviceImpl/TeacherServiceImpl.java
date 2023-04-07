@@ -156,14 +156,5 @@ public class TeacherServiceImpl implements TeacherInterface {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Teacher getTeacherBySubject(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	
-	
+		
 }

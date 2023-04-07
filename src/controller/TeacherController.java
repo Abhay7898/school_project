@@ -11,11 +11,21 @@ public class TeacherController {
 	public static void main(String[] args) throws SQLException {
 		//readAllTeacher();
 		//readStudentById();
-		creatTeacher();
-		
-		
-		
+		//creatTeacher();
 		//updata();
+		//deletTeacher();
+		
+		
+	}
+
+	private static void deletTeacher() {
+		TeacherServiceImpl teacherServiceImpl = new TeacherServiceImpl();
+		boolean result =teacherServiceImpl.deletTeacherById(1);
+		if (result) {
+			System.out.println("Data inserted");
+		}else {
+			System.out.println("'Data not Inserted");
+		}
 	}
 
 	private static void updata() {
@@ -63,7 +73,7 @@ public class TeacherController {
 		Teacher tea=teacherServiceImpl.getTeacherById(1);
 		tea.toString();
 	}
-
+	
 	private static void readAllTeacher() throws SQLException {
 		TeacherServiceImpl teacherServiceImpl = new TeacherServiceImpl();
 		List<Teacher> teacher = teacherServiceImpl.getAllTeacher();
@@ -71,5 +81,4 @@ public class TeacherController {
 			System.out.println(tea);
 		}
 	}
-
 }

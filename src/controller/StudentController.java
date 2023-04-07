@@ -51,7 +51,7 @@ public class StudentController {
 		StudentServiceImpl s = new StudentServiceImpl();
 		Student stu = new Student();
 		stu.setsId(1);
-		stu.setsName("vaishu");
+		stu.setsName("vaishu"); // yaha par do hoi value kyu set ki he :-Abhay
 		boolean b = s.updataStudent(stu);
 		if (b) {
 			System.out.println("record is updated...!");
