@@ -18,5 +18,7 @@ public interface StaffInterface {
 	public boolean deletStaff(int id);
 
 	public Staff getStaffByIdAndName(int id, String name);
+	
+	public Staff getDepartmentByIdAndName(int id, String name);
 
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Staff;
+import model.Teacher;
 import service.StaffInterface;
 import util.CommonUtil;
 import util.SchoolConnection;
@@ -46,7 +47,7 @@ public class StaffServiceImpl implements StaffInterface {
 	public Staff getStaffById(int id) {
 		Staff st = new Staff();
 		try {
-			PreparedStatement ps   =con.prepareStatement("select*from staff where sfid=?");
+			PreparedStatement ps   =CommonUtil.commonStatement("select*from staff where sfid=?");
 			ps.setInt(1, id);
 			ResultSet rs=ps.executeQuery();
 			while (rs.next()) {
@@ -63,7 +64,7 @@ public class StaffServiceImpl implements StaffInterface {
 		int result=0;
 		Staff st = new Staff();
 		try {
-			PreparedStatement ps =con.prepareStatement("creat staff value(?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps =CommonUtil.commonStatement("creat staff value(?,?,?,?,?,?,?,?,?,?,?,?)");
 			extracted2(st, ps);
 			result=ps.executeUpdate();
 		}catch(Exception e ) {
@@ -91,7 +92,7 @@ public class StaffServiceImpl implements StaffInterface {
 	public boolean updataStaff(Staff sf) {
 		boolean  result =false;
 		try {
-			PreparedStatement ps =con.prepareStatement("update staff set sffname=?,sflastname=?,sfage=?,sfgender=?,sfaddress=?,sfmono=?,sfemailid=?,sfdoj=?,sfdepartment=?,sfwork=?,sfsalary=? where sfid=?");
+			PreparedStatement ps =CommonUtil.commonStatement("update staff set sffname=?,sflastname=?,sfage=?,sfgender=?,sfaddress=?,sfmono=?,sfemailid=?,sfdoj=?,sfdepartment=?,sfwork=?,sfsalary=? where sfid=?");
 			Staff st = new Staff();
 			ps.setString(1, st.getSfFName());
 			ps.setString(2, st.getSfLastName());
@@ -132,7 +133,7 @@ public class StaffServiceImpl implements StaffInterface {
 	public Staff getStaffByIdAndName(int id, String name) {
 		Staff st = new Staff();
 		try {
-			PreparedStatement ps =con.prepareStatement("select*from staff where sid=? and sname =?");
+			PreparedStatement ps =CommonUtil.commonStatement("select*from staff where sid=? and sname =?");
 			ps.setInt(1, id);
 			ps.setString(2, name);
 			ResultSet rs =ps.executeQuery();
@@ -143,6 +144,12 @@ public class StaffServiceImpl implements StaffInterface {
 			System.out.println(e);
 		}
 		return st;
+	}
+
+	@Override
+	public Staff getDepartmentByIdAndName(int id, String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

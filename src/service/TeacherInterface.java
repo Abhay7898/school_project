@@ -20,7 +20,7 @@ public interface TeacherInterface {
 	
 	public Teacher getTeacherByStudentId(int id);
 	
-	//public Teacher get
+	public Teacher getTeacherBySubject(String name);
 	
 
 }

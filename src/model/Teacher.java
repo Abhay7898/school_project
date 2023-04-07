@@ -12,7 +12,6 @@ public class Teacher {
 	private int tMobile;
 	private String tEmailId;
 	private Date tDoj;
-	private int sId;
 	private String tSubject;
 	
 	
@@ -20,7 +19,7 @@ public class Teacher {
 		}
 
 	public Teacher(int tId, String tName, String tLastName, int tAge, String tGender, String tAddress, int tMobile,
-			String tEmailId, Date tDoj,int sId,String tSubject) {
+			String tEmailId, Date tDoj,String tSubject) {
 		this.tId = tId;
 		this.tName = tName;
 		this.tLastName = tLastName;
@@ -30,7 +29,6 @@ public class Teacher {
 		this.tMobile = tMobile;
 		this.tEmailId = tEmailId;
 		this.tDoj = tDoj;
-		this.sId=sId;
 		this.tSubject=tSubject;
 	}
 
@@ -106,13 +104,6 @@ public class Teacher {
 		this.tDoj = tDoj;
 	}
 
-	public int getsId() {
-		return sId;
-	}
-
-	public void setsId(int sId) {
-		this.sId = sId;
-	}
 
 	public String gettSubject() {
 		return tSubject;

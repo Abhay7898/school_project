@@ -10,6 +10,7 @@ import java.util.List;
 import model.Student;
 import model.StudentResult;
 import service.StudentResultInterface;
+import util.CommonUtil;
 import util.SchoolConnection;
 
 public class StudentResultServiceImpl implements StudentResultInterface  {
@@ -18,7 +19,7 @@ public class StudentResultServiceImpl implements StudentResultInterface  {
 	public List<StudentResult> getAllStudentResult() throws SQLException {
 		List<Student> list = new ArrayList<>();
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from studentresult");
+			PreparedStatement ps = CommonUtil.commonStatement("select * from studentresult");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				StudentResult res = new StudentResult();
