@@ -19,8 +19,8 @@ public class StaffServiceImpl implements StaffInterface {
 	public List<Staff> getAllStaff() throws SQLException {
 		List<Staff> list = new ArrayList<>();
 		PreparedStatement ps = CommonUtil.commonStatement("select * from staff");
-		ResultSet rs =ps.executeQuery();
-		while(rs.next()) {
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
 			Staff st = new Staff();
 			extracted(rs, st);
 			list.add(st);
@@ -47,13 +47,13 @@ public class StaffServiceImpl implements StaffInterface {
 	public Staff getStaffById(int id) {
 		Staff st = new Staff();
 		try {
-			PreparedStatement ps   =CommonUtil.commonStatement("select*from staff where sfid=?");
+			PreparedStatement ps = CommonUtil.commonStatement("select*from staff where sfid=?");
 			ps.setInt(1, id);
-			ResultSet rs=ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				extracted(rs, st);
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return st;
@@ -61,20 +61,20 @@ public class StaffServiceImpl implements StaffInterface {
 
 	@Override
 	public int createStaff(Staff sf) {
-		int result=0;
+		int result = 0;
 		Staff st = new Staff();
 		try {
-			PreparedStatement ps =CommonUtil.commonStatement("creat staff value(?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps = CommonUtil.commonStatement("insert into staff value(?,?,?,?,?,?,?,?,?,?,?,?)");
 			extracted2(st, ps);
-			result=ps.executeUpdate();
-		}catch(Exception e ) {
+			result = ps.executeUpdate();
+		} catch (Exception e) {
 			System.out.println();
 		}
 		return result;
 	}
 
 	private void extracted2(Staff st, PreparedStatement ps) throws SQLException {
-		ps.setInt(1,st.getSfId());
+		ps.setInt(1, st.getSfId());
 		ps.setString(2, st.getSfFName());
 		ps.setString(3, st.getSfLastName());
 		ps.setInt(4, st.getSfAge());
@@ -84,15 +84,16 @@ public class StaffServiceImpl implements StaffInterface {
 		ps.setString(8, st.getSfEmailId());
 		ps.setDate(9, st.getSfDoj());
 		ps.setString(10, st.getSfDepartment());
-		ps.setString(11,st.getSfWork());
+		ps.setString(11, st.getSfWork());
 		ps.setString(12, st.getSfSalary());
 	}
 
 	@Override
 	public boolean updataStaff(Staff sf) {
-		boolean  result =false;
+		boolean result = false;
 		try {
-			PreparedStatement ps =CommonUtil.commonStatement("update staff set sffname=?,sflastname=?,sfage=?,sfgender=?,sfaddress=?,sfmono=?,sfemailid=?,sfdoj=?,sfdepartment=?,sfwork=?,sfsalary=? where sfid=?");
+			PreparedStatement ps = CommonUtil.commonStatement(
+					"update staff set sffname=?,sflastname=?,sfage=?,sfgender=?,sfaddress=?,sfmono=?,sfemailid=?,sfdoj=?,sfdepartment=?,sfwork=?,sfsalary=? where sfid=?");
 			Staff st = new Staff();
 			ps.setString(1, st.getSfFName());
 			ps.setString(2, st.getSfLastName());
@@ -101,16 +102,16 @@ public class StaffServiceImpl implements StaffInterface {
 			ps.setString(5, st.getSfAddress());
 			ps.setInt(6, st.getSfMobile());
 			ps.setString(7, st.getSfEmailId());
-			//ps.setDate(8, st.getSfDoj());
+			// ps.setDate(8, st.getSfDoj());
 			ps.setString(9, st.getSfDepartment());
-			ps.setString(10,st.getSfWork());
+			ps.setString(10, st.getSfWork());
 			ps.setString(11, st.getSfSalary());
-			ps.setInt(12,st.getSfId());
-			int i=ps.executeUpdate();
-			if(i>0) {
-			return true;
+			ps.setInt(12, st.getSfId());
+			int i = ps.executeUpdate();
+			if (i > 0) {
+				return true;
 			}
-		}catch(Exception e ) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return false;
@@ -122,8 +123,8 @@ public class StaffServiceImpl implements StaffInterface {
 		try {
 			PreparedStatement ps = CommonUtil.commonStatement("delete from staff where sfid=?");
 			ps.setInt(1, id);
-			i=ps.executeUpdate();
-		}catch(Exception e) {
+			i = ps.executeUpdate();
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return CommonUtil.conditionCheaq(i);
@@ -133,14 +134,14 @@ public class StaffServiceImpl implements StaffInterface {
 	public Staff getStaffByIdAndName(int id, String name) {
 		Staff st = new Staff();
 		try {
-			PreparedStatement ps =CommonUtil.commonStatement("select*from staff where sid=? and sname =?");
+			PreparedStatement ps = CommonUtil.commonStatement("select*from staff where sid=? and sname =?");
 			ps.setInt(1, id);
 			ps.setString(2, name);
-			ResultSet rs =ps.executeQuery();
-			while(rs.next()) {
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
 				extracted(rs, st);
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return st;
