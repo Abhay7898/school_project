@@ -1,19 +1,20 @@
 package controller;
 
-
 import java.util.List;
 
 import model.Student;
+import model.Teacher;
 import serviceImpl.StudentServiceImpl;
+import serviceImpl.TeacherServiceImpl;
 
 public class StudentController {
 	public static void main(String[] args) {
 
-		// create();
+		 create();
 
 		// getById();
 
-		// updata();
+//		updata();
 
 		// delete();
 
@@ -50,8 +51,8 @@ public class StudentController {
 	private static void updata() {
 		StudentServiceImpl s = new StudentServiceImpl();
 		Student stu = new Student();
-		stu.setsId(1);
-		stu.setsName("vaishu"); // yaha par do hoi value kyu set ki he :-Abhay
+		stu.setsName("sakshi");
+		stu.setsId(9);
 		boolean b = s.updataStudent(stu);
 		if (b) {
 			System.out.println("record is updated...!");
@@ -70,22 +71,26 @@ public class StudentController {
 	private static void create() {
 		StudentServiceImpl s = new StudentServiceImpl();
 		Student stu = new Student();
-		stu.setsId(1);
-		stu.setsName("nandini");
-		stu.setsFatherName("vinod");
-		stu.setsMotherName("sarika");
-		stu.setsLastName("gadhwal");
-		stu.setsAge(20);
+		stu.setsId(10);
+		stu.setsName("prachi");
+		stu.setsFatherName("krishna");
+		stu.setsMotherName("sunita");
+		stu.setsLastName("hinge");
+		stu.setsAge(19);
 		stu.setsGender("femail");
-		stu.setsAddress("burhanpur");
-		stu.setsMobile(98474737);
-		stu.setsEmailId("nandini24@gmail.com");
-		stu.settId(1);
+		stu.setsAddress("Indore");
+		stu.setsMobile(3789098);
+		stu.setsEmailId("prachi54@gmail.com");
+		stu.setsSubjec("hindi");
+		TeacherServiceImpl ti = new TeacherServiceImpl();
+		Teacher t = ti.getTeacherBySubject("hindi");
+		stu.settId(t.gettId());
+
 		int data = s.createStudent(stu);
-		if (data == 0) {
-			System.out.println("record is not created...!");
+		if (data > 0) {
+			System.out.println("record is  created...!");
 		} else {
-			System.out.println("record is created...!");
+			System.out.println("record is not created...!");
 		}
 	}
 

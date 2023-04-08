@@ -8,12 +8,12 @@ import util.CommonUtil;
 
 public class DepartmentController {
 	public static void main(String[] args) {
-		getAllDepartment();
-		updata();
-		readById();
+		//getAllDepartment();
+		//updata();
+		//readById();
 		create();
-		delete();
-		getDepartmentByIdAndName();
+		//delete();
+		//getDepartmentByIdAndName();
 
 	}
 
@@ -36,9 +36,9 @@ public class DepartmentController {
 	private static void create() {
 		DepartmentServiceImpl d = new DepartmentServiceImpl();
 		Department dept = new Department();
-		dept.setDeptId(1);
-		dept.setDeptName("abhay");
-		dept.setDeptLocation("f-block");
+		dept.setDeptId(4);
+		dept.setDeptName("clerck");
+		dept.setDeptLocation("A-block");
 		int data = d.createDepartment(dept);
 		if (data == 0) {
 			System.out.println("record is not created");

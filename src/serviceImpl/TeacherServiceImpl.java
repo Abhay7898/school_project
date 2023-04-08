@@ -11,16 +11,18 @@ import java.util.List;
 import model.Student;
 import model.Teacher;
 import service.TeacherInterface;
+import util.CommonUtil;
 import util.SchoolConnection;
 
 public class TeacherServiceImpl implements TeacherInterface {
-	Connection con =SchoolConnection.getConnection();
+	Connection con = SchoolConnection.getConnection();
+
 	@Override
 	public List<Teacher> getAllTeacher() throws SQLException {
 		List<Teacher> list = new ArrayList<>();
-		PreparedStatement ps =con.prepareStatement("select*from teacher");
-		ResultSet rs =ps.executeQuery();
-		while(rs.next()) {
+		PreparedStatement ps = CommonUtil.commonStatement("select*from teacher");
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
 			Teacher teacher = new Teacher();
 			teacher.settId(rs.getInt(1));
 			teacher.settName(rs.getString(2));
@@ -38,12 +40,12 @@ public class TeacherServiceImpl implements TeacherInterface {
 
 	@Override
 	public Teacher getTeacherById(int id) {
-		Teacher teacher=new Teacher();
+		Teacher teacher = new Teacher();
 		try {
-			PreparedStatement ps=con.prepareStatement("select*from teacher where tid=?");
+			PreparedStatement ps = CommonUtil.commonStatement("select*from teacher where tid=?");
 			ps.setInt(1, id);
-			ResultSet rs =ps.executeQuery();
-			while(rs.next()) {
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
 				teacher.settId(rs.getInt(1));
 				teacher.settName(rs.getString(2));
 				teacher.settLastName(rs.getString(3));
@@ -54,7 +56,7 @@ public class TeacherServiceImpl implements TeacherInterface {
 				teacher.settEmailId(rs.getString(8));
 				teacher.settDoj(rs.getDate(9));
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return teacher;
@@ -62,22 +64,21 @@ public class TeacherServiceImpl implements TeacherInterface {
 
 	@Override
 	public int createTeacher(Teacher teacher) {
-		int result=0;
+		int result = 0;
 		try {
-		PreparedStatement ps =con.prepareStatement("insert into teacher values(?,?,?,?,?,?,?,?,?,?,?)");
-		ps.setInt(1,teacher.gettId());
-		ps.setString(2, teacher.gettName());
-		ps.setString(3,teacher.gettLastName());
-		ps.setInt(4, teacher.gettAge());
-		ps.setString(5, teacher.gettGender());
-		ps.setString(6, teacher.gettAddress());
-		ps.setInt(7, teacher.gettMobile());
-		ps.setString(8, teacher.gettEmailId());
-		ps.setDate(9 , teacher.gettDoj());
-		ps.setInt(10, 0);
-		ps.setString(11, teacher.gettSubject());
-		result=ps.executeUpdate();
-		}catch (Exception e) {
+			PreparedStatement ps = CommonUtil.commonStatement("insert into teacher values(?,?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, teacher.gettId());
+			ps.setString(2, teacher.gettName());
+			ps.setString(3, teacher.gettLastName());
+			ps.setInt(4, teacher.gettAge());
+			ps.setString(5, teacher.gettGender());
+			ps.setString(6, teacher.gettAddress());
+			ps.setInt(7, teacher.gettMobile());
+			ps.setString(8, teacher.gettEmailId());
+			ps.setDate(9, teacher.gettDoj());
+			ps.setString(10, teacher.gettSubject());
+			result = ps.executeUpdate();
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return result;
@@ -85,24 +86,25 @@ public class TeacherServiceImpl implements TeacherInterface {
 
 	@Override
 	public boolean updataTeacher(Teacher teac) {
-		boolean result =false;
+		boolean result = false;
 		try {
-		PreparedStatement ps =con.prepareStatement("update student set tname=?,tlastname=?,tage=?,tgender=?,taddress=?,tmono=?,temailid=?,tdoj=? where tid=?");
-		Teacher teacher = new Teacher();
-		ps.setString(1, teacher.gettName());
-		ps.setString(2,teacher.gettLastName());
-		ps.setInt(3, teacher.gettAge());
-		ps.setString(4, teacher.gettGender());
-		ps.setString(5, teacher.gettAddress());
-		ps.setInt(6, teacher.gettMobile());
-		ps.setString(7, teacher.gettEmailId());
-		ps.setDate(8, teacher.gettDoj());
-		ps.setInt(9,teacher.gettId());
-		int i=ps.executeUpdate();
-		if(i>0) {
-			return true;
-		}
-		}catch (Exception e) {
+			PreparedStatement ps = CommonUtil.commonStatement(
+					"update student set tname=?,tlastname=?,tage=?,tgender=?,taddress=?,tmono=?,temailid=?,tdoj=? where tid=?");
+			Teacher teacher = new Teacher();
+			ps.setString(1, teacher.gettName());
+			ps.setString(2, teacher.gettLastName());
+			ps.setInt(3, teacher.gettAge());
+			ps.setString(4, teacher.gettGender());
+			ps.setString(5, teacher.gettAddress());
+			ps.setInt(6, teacher.gettMobile());
+			ps.setString(7, teacher.gettEmailId());
+			ps.setDate(8, teacher.gettDoj());
+			ps.setInt(9, teacher.gettId());
+			int i = ps.executeUpdate();
+			if (i > 0) {
+				return true;
+			}
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return false;
@@ -112,14 +114,14 @@ public class TeacherServiceImpl implements TeacherInterface {
 	public boolean deletTeacherById(int id) {
 		boolean result = false;
 		try {
-			PreparedStatement ps =con.prepareStatement("delete from teacher where tid =?");
+			PreparedStatement ps = CommonUtil.commonStatement("delete from teacher where tid =?");
 			Teacher teacher = new Teacher();
 			ps.setInt(1, id);
-			int i=ps.executeUpdate();
-			if (i>0) {
+			int i = ps.executeUpdate();
+			if (i > 0) {
 				return true;
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return false;
@@ -129,10 +131,10 @@ public class TeacherServiceImpl implements TeacherInterface {
 	public Teacher getTeacherByIdAndName(int id, String name) {
 		Teacher teacher = new Teacher();
 		try {
-			PreparedStatement ps =con.prepareStatement("select*from teacher where tid=? and tname=?");
+			PreparedStatement ps = CommonUtil.commonStatement("select*from teacher where tid=? and tname=?");
 			ps.setInt(1, id);
 			ps.setString(2, name);
-			ResultSet rs =ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				teacher.settId(rs.getInt(1));
 				teacher.settName(rs.getString(2));
@@ -145,7 +147,7 @@ public class TeacherServiceImpl implements TeacherInterface {
 				teacher.settDoj(rs.getDate(9));
 				teacher.settSubject(rs.getString(10));
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return teacher;
@@ -156,5 +158,24 @@ public class TeacherServiceImpl implements TeacherInterface {
 		// TODO Auto-generated method stub
 		return null;
 	}
-		
+
+	@Override
+	public Teacher getTeacherBySubject(String subjetcName) {
+		try {
+
+			PreparedStatement ps = CommonUtil.commonStatement("select * from teacher where ssubject =? ");
+			ps.setString(1, subjetcName);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Teacher t = new Teacher();
+				t.settId(rs.getInt(1));
+				return t;
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+
+		return null;
+	}
+
 }

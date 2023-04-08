@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Staff;
+import model.Teacher;
 import service.StaffInterface;
 import util.CommonUtil;
 import util.SchoolConnection;
@@ -144,4 +145,11 @@ public class StaffServiceImpl implements StaffInterface {
 		return st;
 	}
 
+	@Override
+	public Staff getDepartmentByIdAndName(int id, String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

@@ -50,16 +50,17 @@ public class TeacherController {
 	private static void creatTeacher() {
 		TeacherServiceImpl teacherServiceImpl = new TeacherServiceImpl();
 		Teacher teacher = new Teacher();
-		teacher.settId(1);
-		teacher.settName("Abhay");
-		teacher.settLastName("Garhewal");
-		teacher.settAge(21);
-		teacher.settGender("Male");
-		teacher.settAddress("Lalbage");
-		teacher.settMobile(789884592);
-		teacher.settEmailId("abhaygarhwal@95");
+		teacher.settId(5);
+		teacher.settName("vaishanvi");
+		teacher.settLastName("bhute");
+		teacher.settAge(22);
+		
+		teacher.settGender("female");
+		teacher.settAddress("burhanpur");
+		teacher.settMobile(8564533);
+		teacher.settEmailId("vaishanvi@95");
 		teacher.settDoj(new Date(System.currentTimeMillis()));
-		teacher.settSubject("maths");
+		teacher.settSubject("english");
 		int result =teacherServiceImpl.createTeacher(teacher);
 		if (result>0) {
 			System.out.println("Data Insered");

@@ -67,26 +67,27 @@ public class StudentServiceImpl implements StudentInterface {
 	}
 
 	@Override
-	public int createStudent(Student stu) {
+	public int createStudent(Student student) {
 
-		if (CommonUtil.isNotNull(con) || CommonUtil.isNotNull(stu)) {
-			return 0;
-		}
+	//	if (CommonUtil.isNotNull(con) || CommonUtil.isNotNull(stu)) {
+			//return 0;
+		//}
 
 		int data = 0;
 		try {
-			PreparedStatement ps = CommonUtil.commonStatement("insert into student values (?,?,?,?,?,?,?,?,?,?,?)");
-			ps.setInt(1, stu.getsId());
-			ps.setString(2, stu.getsName());
-			ps.setString(3, stu.getsFatherName());
-			ps.setString(4, stu.getsMotherName());
-			ps.setString(5, stu.getsLastName());
-			ps.setInt(6, stu.getsAge());
-			ps.setString(7, stu.getsGender());
-			ps.setString(8, stu.getsAddress());
-			ps.setInt(9, stu.getsMobile());
-			ps.setString(10, stu.getsEmailId());
-			ps.setInt(11, stu.gettId());
+			PreparedStatement ps = CommonUtil.commonStatement("insert into student values (?,?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, student.getsId());
+			ps.setString(2, student.getsName());
+			ps.setString(3, student.getsFatherName());
+			ps.setString(4, student.getsMotherName());
+			ps.setString(5, student.getsLastName());
+			ps.setInt(6, student.getsAge());
+			ps.setString(7, student.getsGender());
+			ps.setString(8, student.getsAddress());
+			ps.setInt(9, student.getsMobile());
+			ps.setString(10, student.getsEmailId());
+			ps.setInt(11, student.gettId());
+			ps.setString(12, student.getsSubjec());
 			data = ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -98,9 +99,9 @@ public class StudentServiceImpl implements StudentInterface {
 	@Override
 	public boolean updataStudent(Student stu) {
 		try {
-			PreparedStatement ps = CommonUtil.commonStatement("update student set sName=? Where sId=?");
-			ps.setString(1, stu.getsName());
-			ps.setInt(2, stu.getsId());
+			PreparedStatement ps = CommonUtil.commonStatement("update student set sId=? Where sName=?");
+			ps.setInt(1, stu.getsId());
+			ps.setString(2, stu.getsName());
 			int i = ps.executeUpdate();
 			return CommonUtil.conditionCheck(i);
 		} catch (Exception e) {
