@@ -17,5 +17,4 @@ public interface StudentResultInterface {
 
 	public boolean deletStudentResult(int id);
 
-	public StudentResult getByIdAndName(int id, String name);
 }

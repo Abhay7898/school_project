@@ -49,25 +49,25 @@ public class CommonUtil {
 					+ stu.getsAddress() + ", sMobile=" + stu.getsMobile() + ", sEmailId=" + stu.getsEmailId() + ", tId=" + stu.gettId()+ "]");	
 		}
 		else if (o instanceof Staff) {
-			Staff s = (Staff) o;
-			System.out.println("Staff[sid =" +s.getSfId()+",sName="+s.getSfFName()+",sfLastName="+s.getSfLastName()+",sfAge="+s.getSfAge()+"sfGender="+s.getSfGender()+"sfAdress="+s.getSfAddress()+"sfMoblie="+s.getSfMobile()+"sfEmailId="+s.getSfEmailId()+"sfDoj="+s.getSfDoj()+"sfDepartment="+s.getSfDepartment()+"sfWork="+s.getSfWork()+"sfSalary"+s.getSfSalary()+"]");
+			Staff st = (Staff) o;
+			System.out.println("Staff[sid =" +st.getSfId()+",sName="+st.getSfFName()+",sfLastName="+st.getSfLastName()+",sfAge="+st.getSfAge()+"sfGender="+st.getSfGender()+"sfAdress="+st.getSfAddress()+"sfMoblie="+st.getSfMobile()+"sfEmailId="+st.getSfEmailId()+"sfDoj="+st.getSfDoj()+"sfDepartment="+st.getSfDepartment()+"sfWork="+st.getSfWork()+"sfSalary"+st.getSfSalary()+"]");
 		}else if(o instanceof Teacher) {
-			Teacher t = new Teacher();
+			Teacher t = (Teacher) o;
 			System.out.println("Teacher[tId=" +t.gettId()+"tName"+t.gettName()+"tLastName="+t.gettLastName()+"tAge="+t.gettAge()+"tGender="+t.gettGender()+"tAdress="+t.gettAddress()+"tMoblie="+t.gettMobile()+"tEmailId="+t.gettEmailId()+"tDoj="+t.gettDoj()+"]");
 		}
 		else if (o instanceof Work) {
-			Work w = new Work();
+			Work w = (Work) o;
 			System.out.println("Work [wId=" + w.getwId()+ ", wName=" +w.getwName() + ", wLocation=" +w.getwLocation()+ "]");
 		}
 		else if (o instanceof StudentResult) {
-			StudentResult sr= new StudentResult();
+			StudentResult sr= (StudentResult) o;
 			System.out.println("StudentResult [rId=" + sr.getrId()+ ", sId=" + sr.getsId()+ ", tId=" + sr.gettId()+ ", maths=" +sr.getMaths() + ", physics="
 					+sr.getPhysics() + ", chemistry=" +sr.getChemistry() + ", hindi=" + sr.getHindi() + ", english=" +sr.getEnglish() + ", totalmarks="
 					+ sr.getTotalmarks() + ", pass_fail=" + sr.isPass_fail() + "]");
 		}
 	}
 
-	public static boolean conditionCheaq(int i) {
+	public static boolean conditionCheck(int i) {
 		if (i > 0) {
 			return true;
 		}

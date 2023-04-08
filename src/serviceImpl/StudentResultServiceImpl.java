@@ -68,9 +68,8 @@ public class StudentResultServiceImpl implements StudentResultInterface {
 	}
 
 	@Override
-	public int createStudentResult(StudentResult student ) {
+	public int createStudentResult(StudentResult student) {
 		int result = 0;
-		//StudentResult student = new StudentResult();
 		try {
 			PreparedStatement ps = con.prepareStatement("insert into student_result value(?,?,?,?,?,?,?,?,?,?)");
 			ps.setInt(1, student.getrId());
@@ -94,13 +93,12 @@ public class StudentResultServiceImpl implements StudentResultInterface {
 	}
 
 	@Override
-	public boolean updataStudentResult(StudentResult sr) {
-		StudentResult student = new StudentResult();
+	public boolean updataStudentResult(StudentResult student) {
 		try {
 			PreparedStatement ps = con.prepareStatement(
-					"update student_result set sid=?,tid=?,maths=?,physics=?,chemistry=?,hindi=?,english=?,totalmarks=?,pass_fail=? where rid=1 ");
+					"update student_result set sid=?,tid=?,maths=?,physics=?,chemistry=?,hindi=?,english=?,totalmarks=?,pass_fail=? where rid=? ");
 			ps.setInt(1, student.getsId());
-			ps.setInt(3, student.gettId());
+			ps.setInt(2, student.gettId());
 			ps.setInt(3, student.getMaths());
 			ps.setInt(4, student.getPhysics());
 			ps.setInt(5, student.getChemistry());
@@ -134,16 +132,4 @@ public class StudentResultServiceImpl implements StudentResultInterface {
 		}
 		return false;
 	}
-
-	@Override
-	public StudentResult getByIdAndName(int id, String name) {
-		StudentResult studentResult = new StudentResult(); // ye bhi incomplite he yaha name kis ka lena he
-		try {
-			con.prepareStatement("select*from student_result where rid =? and ");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return null;
-	}
-
 }

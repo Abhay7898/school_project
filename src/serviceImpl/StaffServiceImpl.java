@@ -61,10 +61,9 @@ public class StaffServiceImpl implements StaffInterface {
 	@Override
 	public int createStaff(Staff sf) {
 		int result = 0;
-		Staff st = new Staff();
 		try {
 			PreparedStatement ps = CommonUtil.commonStatement("insert into staff value(?,?,?,?,?,?,?,?,?,?,?,?)");
-			extracted2(st, ps);
+			extracted2(sf, ps);
 			result = ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println();
@@ -72,28 +71,27 @@ public class StaffServiceImpl implements StaffInterface {
 		return result;
 	}
 
-	private void extracted2(Staff st, PreparedStatement ps) throws SQLException {
-		ps.setInt(1, st.getSfId());
-		ps.setString(2, st.getSfFName());
-		ps.setString(3, st.getSfLastName());
-		ps.setInt(4, st.getSfAge());
-		ps.setString(5, st.getSfGender());
-		ps.setString(6, st.getSfAddress());
-		ps.setInt(7, st.getSfMobile());
-		ps.setString(8, st.getSfEmailId());
-		ps.setDate(9, st.getSfDoj());
-		ps.setString(10, st.getSfDepartment());
-		ps.setString(11, st.getSfWork());
-		ps.setString(12, st.getSfSalary());
+	private void extracted2(Staff sf, PreparedStatement ps) throws SQLException {
+		ps.setInt(1, sf.getSfId());
+		ps.setString(2, sf.getSfFName());
+		ps.setString(3, sf.getSfLastName());
+		ps.setInt(4, sf.getSfAge());
+		ps.setString(5, sf.getSfGender());
+		ps.setString(6, sf.getSfAddress());
+		ps.setInt(7, sf.getSfMobile());
+		ps.setString(8, sf.getSfEmailId());
+		ps.setDate(9, sf.getSfDoj());
+		ps.setString(10, sf.getSfDepartment());
+		ps.setString(11, sf.getSfWork());
+		ps.setString(12, sf.getSfSalary());
 	}
 
 	@Override
-	public boolean updataStaff(Staff sf) {
+	public boolean updataStaff(Staff st) {
 		boolean result = false;
 		try {
 			PreparedStatement ps = CommonUtil.commonStatement(
 					"update staff set sffname=?,sflastname=?,sfage=?,sfgender=?,sfaddress=?,sfmono=?,sfemailid=?,sfdoj=?,sfdepartment=?,sfwork=?,sfsalary=? where sfid=?");
-			Staff st = new Staff();
 			ps.setString(1, st.getSfFName());
 			ps.setString(2, st.getSfLastName());
 			ps.setInt(3, st.getSfAge());
@@ -101,7 +99,7 @@ public class StaffServiceImpl implements StaffInterface {
 			ps.setString(5, st.getSfAddress());
 			ps.setInt(6, st.getSfMobile());
 			ps.setString(7, st.getSfEmailId());
-			// ps.setDate(8, st.getSfDoj());
+		    ps.setDate(8, st.getSfDoj());
 			ps.setString(9, st.getSfDepartment());
 			ps.setString(10, st.getSfWork());
 			ps.setString(11, st.getSfSalary());
@@ -126,14 +124,14 @@ public class StaffServiceImpl implements StaffInterface {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return CommonUtil.conditionCheaq(i);
+		return CommonUtil.conditionCheck(i);
 	}
 
 	@Override
 	public Staff getStaffByIdAndName(int id, String name) {
 		Staff st = new Staff();
 		try {
-			PreparedStatement ps = CommonUtil.commonStatement("select*from staff where sid=? and sname =?");
+			PreparedStatement ps = CommonUtil.commonStatement("select*from staff where sfid=? and sffname =?");
 			ps.setInt(1, id);
 			ps.setString(2, name);
 			ResultSet rs = ps.executeQuery();

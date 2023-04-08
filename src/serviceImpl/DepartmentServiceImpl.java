@@ -80,12 +80,12 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 			ps.setString(1, dept.getDeptName());
 			ps.setInt(2, dept.getDeptId());
 			int i = ps.executeUpdate();
-			return CommonUtil.conditionCheaq(i);
+			return CommonUtil.conditionCheck(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 
-		return true;
+		return false;
 
 	}
 
@@ -95,7 +95,7 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 			PreparedStatement ps = CommonUtil.commonStatement("delete from department Where deptId=?");
 			ps.setInt(1, id);
 			int i = ps.executeUpdate();
-			return CommonUtil.conditionCheaq(i);
+			return CommonUtil.conditionCheck(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

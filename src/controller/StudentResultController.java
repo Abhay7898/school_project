@@ -10,14 +10,53 @@ import util.CommonUtil;
 public class StudentResultController {
 	public static void main(String[] args) throws SQLException {
 		//readAllResult();
-		insertData();
-		
+		//creatData();
+		//readById();
+		//deleteData();
+		//updateData();
 	}
 
-	private static void insertData() {
+	private static void updateData() {
 		StudentResultServiceImpl studentResultServiceImpl = new StudentResultServiceImpl();
 		StudentResult student = new StudentResult();
-		student.setrId(1);
+		student.setrId(2);
+		student.setsId(1);
+		student.settId(1);
+		student.setMaths(54);
+		student.setPhysics(07);
+		student.setChemistry(33);
+		student.setHindi(80);
+		student.setEnglish(60);
+		student.setTotalmarks(200);
+		student.setPass_fail(true);
+		boolean result=studentResultServiceImpl.updataStudentResult(student);
+		if(result) {
+			System.out.println("Data updeted");
+		}else {
+			System.out.println("Data Not Updated");
+		}
+	}
+
+	private static void deleteData() {
+		StudentResultServiceImpl studentResultServiceImp=new StudentResultServiceImpl();
+		boolean result =studentResultServiceImp.deletStudentResult(1);
+		if(result) {
+			System.out.println("Data Deleted");
+		}else {
+			System.out.println("Data Not Deleted");
+		}
+	}
+
+	private static void readById() {
+		StudentResultServiceImpl studentResultServiceImpl = new StudentResultServiceImpl();
+		StudentResult studentResult=studentResultServiceImpl.getStudentResultById(1);
+		CommonUtil.toString(studentResult);
+	}
+
+	private static void creatData() {
+		StudentResultServiceImpl studentResultServiceImpl = new StudentResultServiceImpl();
+		StudentResult student = new StudentResult();
+		student.setrId(5);
 		student.setsId(1);
 		student.settId(1);
 		student.setMaths(45);
@@ -39,7 +78,7 @@ public class StudentResultController {
 		StudentResultServiceImpl studentResultServiceImpl = new StudentResultServiceImpl();
 		List<StudentResult> list = studentResultServiceImpl.getAllStudentResult();
 		for (StudentResult studentResult : list) {
-			CommonUtil.toString(list);
+			CommonUtil.toString(studentResult);
 		}
 	}
 }

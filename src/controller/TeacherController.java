@@ -12,7 +12,7 @@ public class TeacherController {
 		//readAllTeacher();
 		//readStudentById();
 		//creatTeacher();
-		//updata();
+		updata();
 		//deletTeacher();
 		
 		
@@ -40,7 +40,7 @@ public class TeacherController {
 		teacher.settMobile(789884592);
 		teacher.settEmailId("abhaygarhwal@95");
 		teacher.settSubject("maths");
-		//teacher.settDoj();
+		teacher.settDoj(new Date(System.currentTimeMillis()));
 		boolean result =teacherServiceImpl.updataTeacher(teacher);
 		if(result) {
 			System.out.println("R");

@@ -78,7 +78,7 @@ public class WorkServiceImpl implements WorkInterface {
 			ps.setString(1, w.getwName());
 			ps.setInt(2, w.getwId());
 			int i = ps.executeUpdate();
-			return CommonUtil.conditionCheaq(i);
+			return CommonUtil.conditionCheck(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -91,7 +91,7 @@ public class WorkServiceImpl implements WorkInterface {
 			PreparedStatement ps = CommonUtil.commonStatement("delete from work Where wId=?");
 			ps.setInt(1, id);
 			int i = ps.executeUpdate();
-			return CommonUtil.conditionCheaq(i);
+			return CommonUtil.conditionCheck(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}

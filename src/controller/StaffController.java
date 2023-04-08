@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,90 +13,85 @@ public class StaffController {
 
 		//getAllStaff();
 		//getById();
-		//InsertData();
-		//updateData();
-		//deleteData();
+		// creatData();
+		 //updateData();
+		 //deleteData();
 		//getbyIdAndName();
 	}
 
 	private static void getbyIdAndName() {
-		StaffServiceImpl staffServiceImpl=new StaffServiceImpl();
-		Staff st=staffServiceImpl.getStaffByIdAndName(1, "Abhay");
+		StaffServiceImpl staffServiceImpl = new StaffServiceImpl();
+		Staff st = staffServiceImpl.getStaffByIdAndName(3, "abhi");
 		CommonUtil.toString(st);
 	}
 
 	private static void deleteData() {
 		StaffServiceImpl strServiceImpl = new StaffServiceImpl();
-		boolean result =strServiceImpl.deletStaff(1);
-		if(result) {
+		boolean result = strServiceImpl.deletStaff(2);
+		if (result) {
 			System.out.println("Data deleted");
-		}else {
+		} else {
 			System.out.println("Data Not Deleted");
 		}
 	}
 
 	private static void updateData() {
-		StaffServiceImpl staffServiceImpl=new StaffServiceImpl();
+		StaffServiceImpl staffServiceImpl = new StaffServiceImpl();
 		Staff st = new Staff();
-		st.setSfId(1);
-		st.setSfFName("abhi");
+		st.setSfId(2);
+		st.setSfFName("Abhi");
 		st.setSfLastName("garhwal");
 		st.setSfAddress("lalbag");
 		st.setSfAge(45);
-		st.setSfDepartment(" ");
-		// st.setSfDoj();
-		st.setSfEmailId("abhi98@");
+		st.setSfDepartment(" MCA");
+		st.setSfDoj(new Date(System.currentTimeMillis()));
+		st.setSfEmailId("abhi98@gmail.com");
 		st.setSfGender("mail");
 		st.setSfMobile(8758575);
 		st.setSfSalary("90000");
 		st.setSfWork("marketing");
-		boolean result =staffServiceImpl.updataStaff(st);
-		if(result) {
-			System.out.println("Data updateed");
-		}else {
+		boolean result = staffServiceImpl.updataStaff(st);
+		if (result) {
+			System.out.println("Data updated");
+		} else {
 			System.out.println("Data not updated");
 		}
 	}
 
-	private static void InsertData() {
+	private static void creatData() {
 		StaffServiceImpl stf = new StaffServiceImpl();
 		Staff st = new Staff();
-		st.setSfId(1);
+		st.setSfId(4);
 		st.setSfFName("abhi");
 		st.setSfLastName("garhwal");
 		st.setSfAddress("lalbag");
 		st.setSfAge(45);
 		st.setSfDepartment(" ");
-		// st.setSfDoj();
-		st.setSfEmailId("abhi98@");
-		st.setSfGender("mail");
+		st.setSfDoj(new Date(System.currentTimeMillis()));
+		st.setSfEmailId("abhi98@gmail.com");
+		st.setSfGender("Male");
 		st.setSfMobile(8758575);
 		st.setSfSalary("90000");
 		st.setSfWork("marketing");
 		int result = stf.createStaff(st);
-		if (result == 0) {
-			System.out.println("record is not created");
+		if (result > 0) {
+			System.out.println("Record Is  Created");
 		} else {
-			System.out.println("record is created");
+			System.out.println("Record Is Not Created");
 		}
 	}
 
 	private static void getById() {
 		StaffServiceImpl stf = new StaffServiceImpl();
-		Staff st = stf.getStaffById(1);
+		Staff st = stf.getStaffById(2);
 		CommonUtil.toString(st);
 	}
 
 	private static void getAllStaff() throws SQLException {
 		StaffServiceImpl stf = new StaffServiceImpl();
-		List<Staff> liststaff = stf.getAllStaff();
-
-		if (!CommonUtil.isNullOrEmpty(liststaff)) {
-
-			for (Staff staff : liststaff) {
-				System.out.println(staff);
-			}
+		List<Staff> list = stf.getAllStaff();
+		for (Staff staff : list) {
+			CommonUtil.toString(staff);
 		}
 	}
-
 }

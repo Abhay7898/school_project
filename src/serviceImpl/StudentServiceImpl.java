@@ -102,7 +102,7 @@ public class StudentServiceImpl implements StudentInterface {
 			ps.setString(1, stu.getsName());
 			ps.setInt(2, stu.getsId());
 			int i = ps.executeUpdate();
-			return CommonUtil.conditionCheaq(i);
+			return CommonUtil.conditionCheck(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -116,7 +116,7 @@ public class StudentServiceImpl implements StudentInterface {
 			PreparedStatement ps = CommonUtil.commonStatement("delete from student Where sId=?");
 			ps.setInt(1, id);
 			int i = ps.executeUpdate();
-			return CommonUtil.conditionCheaq(i);
+			return CommonUtil.conditionCheck(i);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
