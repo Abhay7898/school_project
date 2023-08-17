@@ -114,7 +114,6 @@ public class DepartmentServiceImpl implements DepartmentInterface {
 				dept.setDeptId(rs.getInt(1));
 				dept.setDeptName(rs.getString(2));
 				dept.setDeptLocation(rs.getString(3));
-
 			}
 		} catch (Exception e) {
 			System.out.println(e);

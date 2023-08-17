@@ -90,6 +90,7 @@ public class Staff {
 	public void setSfSalary(String sfSalary) {
 		this.sfSalary = sfSalary;
 	}
+	
 	@Override
 	public String toString() {
 		return "Staff [sfId=" + sfId + ", sfFName=" + sfFName + ", sfLastName=" + sfLastName + ", sfAge=" + sfAge
