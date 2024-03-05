@@ -11,7 +11,7 @@ import util.CommonUtil;
 public class StaffController {
 	public static void main(String[] args) throws SQLException {
 
-		//getAllStaff();
+		getAllStaff();
 		//getById();
 		// creatData();
 		 //updateData();

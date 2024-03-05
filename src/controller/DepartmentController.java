@@ -8,7 +8,7 @@ import util.CommonUtil;
 
 public class DepartmentController {
 	public static void main(String[] args) {
-		//getAllDepartment();
+		getAllDepartment();
 		//updata();
 		//readById();
 		create();
